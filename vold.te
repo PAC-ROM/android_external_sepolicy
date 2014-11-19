@@ -168,3 +168,6 @@ neverallow { domain -vold } vold_data_file:notdevfile_class_set ~{ relabelto get
 neverallow { domain -vold -init } vold_data_file:dir *;
 neverallow { domain -vold -init } vold_data_file:notdevfile_class_set *;
 neverallow { domain -vold -init } restorecon_prop:property_service set;
+
+# For UMS tuning
+allow vold proc_dirty_ratio:file rw_file_perms;
