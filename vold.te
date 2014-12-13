@@ -51,6 +51,7 @@ type_transition vold mnt_media_rw_file:dir mnt_media_rw_stub_file;
 # Allow mounting of storage devices
 allow vold { mnt_media_rw_stub_file storage_stub_file }:dir { mounton create rmdir getattr setattr };
 allow vold sdcard_type:filesystem { mount unmount remount };
+allow vold sdcard_posix:filesystem { relabelto relabelfrom };
 
 # Manage per-user primary symlinks
 allow vold mnt_user_file:dir create_dir_perms;
